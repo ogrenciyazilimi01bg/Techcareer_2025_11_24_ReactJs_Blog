@@ -101,13 +101,11 @@ git push -u origin master
 ---
 
 
-
 ## GitHub Link
 
 ```sh
-
+https://github.com/hamitmizrak/Techcareer_2025_11_24_ReactJs_Blog
 ```
-
 
 ## Git Pull
 
@@ -142,10 +140,31 @@ React datasheet ==> https://tr.react.dev/
 
 ---
 
-##
+## ReactJs Install
 
 ```sh
+npx create-react-app [projectName]
+cd blog
+npm start
 
+// edit
+npm install lucide-react
+
+// icon
+npm install react-icons
+
+toast ekle
+npm i react-hot-toast
+
+pdf excel eklemek
+npm i xlsx jspdf jspdf-autotable
+
+npm i axios react-router-dom zustand jwt-decode
+
+npm install axios --save
+npm install react-router-dom --save
+npm install i18next --save
+npm install react-i18next --save
 ```
 
 ---
