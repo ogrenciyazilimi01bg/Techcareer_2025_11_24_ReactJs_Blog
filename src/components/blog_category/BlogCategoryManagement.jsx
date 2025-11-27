@@ -1,5 +1,5 @@
 // REACT
-import React, { useEffect, useMemo, useState } from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 import Swal from 'sweetalert2';
 
 // TOAST
@@ -13,10 +13,10 @@ import ReusabilityToast from '../../reusability/ReusabilityToast';
 import BlogCategoryApiService from '../../services/BlogCategoryApiService';
 
 // I18N
-import { withTranslation } from 'react-i18next';
+import {withTranslation} from 'react-i18next';
 
 // FUNCTION
-function BlogCategoryManagement({ props, t, i18n }) {
+function BlogCategoryManagement({props, t, i18n}) {
     // ROUTER
     //let navigate = useNavigate();
 
@@ -140,7 +140,7 @@ function BlogCategoryManagement({ props, t, i18n }) {
       Genellikle: büyük array, filtrelemeler, ağır hesaplamalarda, çok karmaşık obje için kullanırız.
       Amaç: Her render'dan sonra tekrar çalışmasın ancak ilgili parametreler çalışsın(state/props) değiştiğinde tekrar hesaplama yapsın.
       */
-    const { pageData, totalItems, totalPages } = useMemo(() => {
+    const {pageData, totalItems, totalPages} = useMemo(() => {
         // Search (Küçük karakter+boşluksuz)
         const normalized = searchTerm.toLowerCase().trim();
         // Filter
@@ -242,7 +242,7 @@ function BlogCategoryManagement({ props, t, i18n }) {
     //      FORM HANDLE
     // =====================================================
     const handleChange = (event) => {
-        const { name, value } = event.target;
+        const {name, value} = event.target;
         setFormData((prev) => ({
             ...prev,
             [name]: value,
@@ -386,9 +386,9 @@ function BlogCategoryManagement({ props, t, i18n }) {
     return (
         <React.Fragment>
             {/* Toaster provider (sağ alt, global varsayılan) */}
-            <ReusabilityToast />
+            <ReusabilityToast/>
 
-            <br />
+            <br/>
 
             {/* Başlık: animate.css ile */}
             <h1 className="text-center display-5 mt-4 b-4 animate__animated animate__fadeInDown">
@@ -410,7 +410,7 @@ function BlogCategoryManagement({ props, t, i18n }) {
                         />
                         <datalist id="blogCategoryNames">
                             {blogCategoryApiListData.map((cat) => (
-                                <option key={cat.categoryId} value={cat.categoryName} />
+                                <option key={cat.categoryId} value={cat.categoryName}/>
                             ))}
                         </datalist>
                     </div>
@@ -437,12 +437,13 @@ function BlogCategoryManagement({ props, t, i18n }) {
                         <div className="d-flex justify-content-md-end align-items-center gap-3">
                             <span className="badge bg-secondary">{totalItems} kayıt</span>
                             <button className="btn btn-primary" type="button" onClick={openCreateModal}>
-                                <i className="fa-solid fa-plus me-1" />
+                                <i className="fa-solid fa-plus me-1"/>
                                 {t('create')}
                             </button>
                         </div>
                     </div>
-                </div>{' '}
+                </div>
+                {' '}
                 {/* row */}
             </div>
 
@@ -452,7 +453,7 @@ function BlogCategoryManagement({ props, t, i18n }) {
             {/*LOADING ERROR*/}
             {loading ? (
                 <div className="text-center my-5">
-                    <div className="spinner-border" role="status" />
+                    <div className="spinner-border" role="status"/>
                 </div>
             ) : (
                 <div className="table-responsive mt-3 container animate__animated animate__fadeInUp">
@@ -461,7 +462,7 @@ function BlogCategoryManagement({ props, t, i18n }) {
                     ) : (
                         <table
                             className="table table-striped table-dark table-bordered mb-4 align-middle"
-                            style={{ borderRadius: '0.75rem', overflow: 'hidden' }}
+                            style={{borderRadius: '0.75rem', overflow: 'hidden'}}
                         >
                             <thead>
                             <tr>
@@ -486,7 +487,7 @@ function BlogCategoryManagement({ props, t, i18n }) {
                                             className="btn btn-outline-light btn-sm"
                                             onClick={() => openEditModal(data)}
                                         >
-                                            <i className="fa-solid fa-wrench" />
+                                            <i className="fa-solid fa-wrench"/>
                                         </button>
                                     </td>
 
@@ -496,7 +497,7 @@ function BlogCategoryManagement({ props, t, i18n }) {
                                             className="btn btn-outline-light btn-sm"
                                             onClick={() => openShowModal(data)}
                                         >
-                                            <i className="fa-solid fa-eye" />
+                                            <i className="fa-solid fa-eye"/>
                                         </button>
                                     </td>
 
@@ -506,7 +507,7 @@ function BlogCategoryManagement({ props, t, i18n }) {
                                             className="btn btn-outline-danger btn-sm"
                                             onClick={() => handleDelete(data)}
                                         >
-                                            <i className="fa-solid fa-trash-can" />
+                                            <i className="fa-solid fa-trash-can"/>
                                         </button>
                                     </td>
                                 </tr>
@@ -565,13 +566,13 @@ function BlogCategoryManagement({ props, t, i18n }) {
                     className="modal fade show d-block"
                     tabIndex="-1"
                     role="dialog"
-                    style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}
+                    style={{backgroundColor: 'rgba(0,0,0,0.5)'}}
                 >
                     <div className="modal-dialog modal-dialog-centered">
                         <div className="modal-content animate__animated animate__zoomIn">
                             <div className="modal-header">
                                 <h5 className="modal-title">{getModalTitle()}</h5>
-                                <button type="button" className="btn-close" onClick={closeModal} />
+                                <button type="button" className="btn-close" onClick={closeModal}/>
                             </div>
                             <div className="modal-body">{renderModalBody()}</div>
 
@@ -586,7 +587,7 @@ function BlogCategoryManagement({ props, t, i18n }) {
                                             className="btn btn-warning"
                                             onClick={() => openEditModal(selectedCategory)}
                                         >
-                                            <i className="fa-solid fa-wrench me-1" />
+                                            <i className="fa-solid fa-wrench me-1"/>
                                             {t('update')}
                                         </button>
                                     )}
@@ -600,4 +601,5 @@ function BlogCategoryManagement({ props, t, i18n }) {
     );
 }
 
+// HOC Default
 export default withTranslation()(BlogCategoryManagement);
